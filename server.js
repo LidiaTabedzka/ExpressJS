@@ -2,7 +2,12 @@ var express = require('express');
 var app = express();
 
 app.use('/store', function(req, res, next){
-    console.log('Jestem pośrednikiem przy żądaniu do /store');
+    console.log('Jestem pośrednikiem przy żądaniu do /store - autoryzacja użytkownika');
+    next();
+});
+
+app.use('/store', function(req, res, next){
+    console.log('Jestem pośrednikiem przy żądaniu do /store - sprawdzanie uprawnień');
     next();
 });
 
