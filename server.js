@@ -1,22 +1,22 @@
 var express = require('express');
 var app = express();
 
-app.use('/store', function(req, res, next){
-    console.log('Jestem pośrednikiem przy żądaniu do /store - autoryzacja użytkownika');
+function auth (req, res, next){
+    console.log('autoryzacja użytkownika'); 
     next();
-});
+}
 
-app.use('/store', function(req, res, next){
-    console.log('Jestem pośrednikiem przy żądaniu do /store - sprawdzanie uprawnień');
+function permission (req, res, next){
+    console.log('sprawdzanie uprawnień');
     next();
-});
+}
 
 app.get('/', function (req, res) {
     res.send('Hello world');
 });
 
-app.get('/store', function (req, res) {
-    res.send('To jest sklep');
+app.get('/store', auth, permission, function (req, res) {
+        res.send('To jest sklep');
 });
 
 app.listen(3000);
