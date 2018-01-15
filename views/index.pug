@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        title="Google log in test app"
+        style 
+            include style.css
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+    body
+        div.app
+            include ./header.pug
+            p.bold Sklep z kosmetykami naturalnymi.
+            p Miejsce z kosmetykami organicznymi uznanych marek, z różnych stron świata, w zróżnicowanych cenach. Mogą Państwo skorzystać także z rady profesjonalnej kosmetyczki, podzielić się cennymi uwagami i opiniami na temat kosmetyków oraz zaproponować marki, których produkty chcieliby kupować w naszym sklepie.
+            a(href="/auth/google").link
+                i.fa.fa-google
+                p Zaloguj się przez #[span.bold Google] 
